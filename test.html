@@ -4,18 +4,12 @@
     <meta charset="UTF-8">
     <title>Event Registration Form</title>
 
-    <!-- AngularJS CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="test.js"></script>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .box {
-            width: 480px;
-            margin: auto;
-        }
+        body { font-family: Arial; }
+        .box { width: 500px; margin: auto; }
     </style>
 </head>
 
@@ -39,20 +33,18 @@
         <input type="text" ng-model="user.contact" required>
         <br><br>
 
-        Select Event:
-        <select ng-model="user.event"
-                ng-options="event as event.name for event in events"
-                required>
-            <option value="">--Select Event--</option>
-        </select>
-        <br><br>
+        Select Events:
+        <div ng-repeat="event in events">
+            <input type="checkbox" ng-model="event.selected">
+            {{ event.name }}
+        </div>
+        <br>
 
         <input type="submit" value="Register">
     </form>
 
     <hr>
 
-    <!-- Display details after submit -->
     <div ng-show="submitted">
         <h3>Thank You for Registering!</h3>
 
@@ -60,12 +52,14 @@
         <p><b>Email:</b> {{ user.email }}</p>
         <p><b>Contact Number:</b> {{ user.contact }}</p>
 
-        <h4>Event Details</h4>
-        <p><b>Event Name:</b> {{ user.event.name }}</p>
-        <p><b>Venue:</b> {{ user.event.venue }}</p>
-        <p><b>Time:</b> {{ user.event.time }}</p>
-
-        <p>We look forward to seeing you at the event.</p>
+        <h4>Selected Events</h4>
+<hr>
+        <div ng-repeat="event in events" ng-if="event.selected">
+            <p><b>Event:</b> {{ event.name }}</p>
+            <p><b>Venue:</b> {{ event.venue }}</p>
+            <p><b>Time:</b> {{ event.time }}</p>
+            <hr>
+        </div>
     </div>
 
 </div>
