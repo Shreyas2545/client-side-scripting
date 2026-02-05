@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="currencyApp">
+<head>
+    <title>Currency Converter</title>
+
+    <!-- AngularJS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="currencyController">
+
+    <h2>Currency Converter (INR ⇄ USD)</h2>
+
+    Enter Amount:
+    <input type="number" ng-model="amount" placeholder="Enter amount">
+
+    <br><br>
+
+    <!-- Conversion Results -->
+    <h3>Amount in INR:
+        {{ amount | currency:"₹" }}
+    </h3>
+
+    <h3>Converted to USD:
+        {{ (amount / 90) | currency:"$" }}
+    </h3>
+
+    <hr>
+
+    Enter Amount in USD:
+    <input type="number" ng-model="usdAmount" placeholder="Enter USD">
+
+    <br><br>
+
+    <h3>Amount in USD:
+        {{ usdAmount | currency:"$" }}
+    </h3>
+
+    <h3>Converted to INR:
+        {{ (usdAmount * 90) | currency:"₹" }}
+    </h3>
+
+</body>
+
+<script>
+var app = angular.module("currencyApp", []);
+
+app.controller("currencyController", function($scope){
+    $scope.amount = 0;
+    $scope.usdAmount = 0;
+});
+</script>
+
+</html>

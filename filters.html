@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head>
+    <title>Practical 8</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+
+    <h2>Display Name Using Filter</h2>
+
+    First Name:
+    <input type="text" ng-model="firstName" placeholder="Enter First Name">
+
+    <br><br>
+
+    Last Name:
+    <input type="text" ng-model="lastName" placeholder="Enter Last Name">
+
+    <br><br>
+
+    <h3>
+        Full Name: {{ (firstName + ' ' + lastName) | uppercase }}
+    </h3>
+
+</body>
+</html>

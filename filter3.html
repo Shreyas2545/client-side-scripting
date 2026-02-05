@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+  Select Date:
+  <input type="date" ng-model="myDate">
+
+  <H4>Formatted Date: {{ myDate | date:'MM/dd/yyyy' }}</H4>
+
+</body>
+</html>

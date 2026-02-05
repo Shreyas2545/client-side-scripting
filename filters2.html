@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+  Enter Amount:
+  <input type="number" ng-model="amount">
+
+  <p>Formatted Amount: {{ amount | currency }}</p>
+
+</body>
+</html>
