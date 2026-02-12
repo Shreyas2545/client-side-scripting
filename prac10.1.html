@@ -4,10 +4,8 @@
 <head>
     <title>Student Table</title>
 
-    <!-- AngularJS CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
@@ -40,22 +38,22 @@
             border-collapse: collapse;
         }
 
+        /* ⭐ FULL TABULAR GRID */
+        th,
+        td {
+            border: 1px solid #dcdcdc;
+            padding: 12px;
+            text-align: center;
+        }
+
         th {
             background: #2c3e50;
             color: white;
-            padding: 12px;
             font-weight: 500;
-        }
-
-        td {
-            padding: 10px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
         }
 
         tr:hover {
             background: #f1f7ff;
-            transition: 0.2s;
         }
     </style>
 
@@ -81,14 +79,17 @@
                 <td>{{s.course}}</td>
                 <td>{{s.age}}</td>
             </tr>
+
         </table>
 
     </div>
 
     <script>
+
         var app = angular.module("myApp", []);
 
         app.controller("myCtrl", function ($scope) {
+
             $scope.students = [
                 { roll: "23203A0001", name: "Amit", course: "CO", age: 20 },
                 { roll: "23203A0002", name: "Neha", course: "CO", age: 19 },
@@ -101,7 +102,9 @@
                 { roll: "23203A0009", name: "Sanskriti", course: "IF", age: 17 },
                 { roll: "23203A0010", name: "Sneha", course: "CO", age: 19 }
             ];
+
         });
+
     </script>
 
 </body>

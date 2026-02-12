@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="empApp">
+
+<head>
+    <title>Employee Data</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- SAME FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            width: 750px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #dcdcdc;
+            /* ✅ Proper cell borders */
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #2c3e50;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f1f7ff;
+        }
+    </style>
+</head>
+
+<body ng-controller="empController">
+
+    <div class="container">
+
+        <h2>Company Employee Data</h2>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Location</th>
+            </tr>
+
+            <tr ng-repeat="emp in employees">
+                <td>{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.department}}</td>
+                <td>₹{{emp.salary}}</td>
+                <td>{{emp.location}}</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script>
+
+        var app = angular.module("empApp", []);
+
+        app.controller("empController", function ($scope) {
+
+            $scope.employees = [
+                { id: 101, name: "Shreyas Hadawale", department: "IT", salary: 75000, location: "Pune" },
+                { id: 102, name: "Vedant Shirke", department: "HR", salary: 48000, location: "Mumbai" },
+                { id: 103, name: "Tapan Juwatkar", department: "Finance", salary: 60000, location: "Delhi" },
+                { id: 104, name: "Sneha Jadhav", department: "Marketing", salary: 52000, location: "Bangalore" },
+                { id: 105, name: "Sankalp Pandya", department: "IT", salary: 58000, location: "Hyderabad" },
+                { id: 106, name: "Nikhil Joshi", department: "HR", salary: 47000, location: "Pune" },
+                { id: 107, name: "Vikram Singh", department: "Operations", salary: 53000, location: "Chennai" },
+                { id: 108, name: "Sujal Sargar", department: "Finance", salary: 61000, location: "Kochi" },
+                { id: 109, name: "Avantika Pawar", department: "IT", salary: 59000, location: "Pune" },
+                { id: 110, name: "Rohit Sharma", department: "Marketing", salary: 50000, location: "Mumbai" }
+            ];
+
+        });
+
+    </script>
+
+</body>
+
+</html>
