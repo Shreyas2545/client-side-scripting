@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Change Button Color</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .color1Btn {
+            background-color: greenyellow;
+            color: white;
+        }
+
+        .color2Btn {
+            background-color: pink;
+            color: white;
+        }
+
+        button {
+            padding: 40px 80px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body ng-controller="myController">
+
+    <button ng-click="changeColor()" ng-class="{'color1Btn': isClicked, 'color2Btn': !isClicked}">
+        Click Me
+    </button>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myController", function ($scope) {
+            $scope.isClicked = false;
+
+            $scope.changeColor = function () {
+                $scope.isClicked = !$scope.isClicked;
+            };
+        });
+    </script>
+
+</body>
+
+</html>
