@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Character Counter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="myCtrl">
+
+    <input type="text" ng-model="textValue" placeholder="Type here">
+
+    <p>Key Count: {{ textValue.length || 0 }}</p>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function ($scope) {
+            $scope.textValue = "";
+        });
+    </script>
+
+</body>
+
+</html>
